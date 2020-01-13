@@ -28,49 +28,49 @@ import java.net.HttpURLConnection
 class ViewModelTest {
 
 
-    private lateinit var viewModel: ProductsListViewModel
-
-    private val observer: Observer<CommonResponse<Any?>> = mock()
-
-
-    private var mockWebServer = MockWebServer()
-
-    private lateinit var apiService: RestService
-
-    @Before
-    fun setup() {
-        mockWebServer.start()
-
-        apiService = Retrofit.Builder()
-            .baseUrl(mockWebServer.url("/"))
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(OkHttpClient.Builder().build())
-            .build()
-            .create(RestService::class.java)
-
-        viewModel = ProductsListViewModel(MainRepo(apiService))
-        
-        viewModel.getProducts()
-    }
-
-    @Test
-    fun testGetProducts() = runBlocking<Unit> {
-        val result = viewModel.result
-
-
-        val captor = ArgumentCaptor.forClass(CommonResponse::class.java)
-        captor.run {
-            verify(observer, times(1)).onNext(capture())
-            assertTrue(1 == 1)
-        }
-        //       }
-
-    }
-
-    @After
-    fun teardown() {
-        //mockWebServer.shutdown()
-    }
+//    private lateinit var viewModel: ProductsListViewModel
+//
+//    private val observer: Observer<CommonResponse<Any?>> = mock()
+//
+//
+//    private var mockWebServer = MockWebServer()
+//
+//    private lateinit var apiService: RestService
+//
+//    @Before
+//    fun setup() {
+//        mockWebServer.start()
+//
+//        apiService = Retrofit.Builder()
+//            .baseUrl(mockWebServer.url("/"))
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .client(OkHttpClient.Builder().build())
+//            .build()
+//            .create(RestService::class.java)
+//
+//        viewModel = ProductsListViewModel(MainRepo(apiService))
+//
+//        viewModel.getProducts()
+//    }
+//
+//    @Test
+//    fun testGetProducts() = runBlocking<Unit> {
+//        val result = viewModel.result
+//
+//
+//        val captor = ArgumentCaptor.forClass(CommonResponse::class.java)
+//        captor.run {
+//            verify(observer, times(1)).onNext(capture())
+//            assertTrue(1 == 1)
+//        }
+//        //       }
+//
+//    }
+//
+//    @After
+//    fun teardown() {
+//        //mockWebServer.shutdown()
+//    }
 
 
 }
