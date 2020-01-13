@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mobiquity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shopping_to_your_location">Shopping to your Location:</string>
+    <string name="price">Price :</string>
+    <string name="_1_00_euro">1.00 Euro</string>
+    <string name="beer">Beer</string>
+</resources>

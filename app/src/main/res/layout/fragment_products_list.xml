@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.products_list.ProductsListFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:text="@string/shopping_to_your_location"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:padding="6dp"
+        android:src="@drawable/ic_arrow_down"
+        android:tint="#000"
+        app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
+        app:layout_constraintStart_toEndOf="@id/pageTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_heart"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/shopping"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/shopping"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_shopping_cart"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/heart"
+        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+        app:layout_constraintTop_toTopOf="@+id/heart" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/banners"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="6dp"
+        android:clipToPadding="true"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/smallBox"
+        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
+        app:layout_constraintVertical_bias="0.23000002"
+        tools:listitem="@layout/banners_item" />
+
+    <View
+        android:id="@+id/smallBox"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="144dp"
+        android:background="#fff"
+        android:elevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.flyco.tablayout.SegmentTabLayout
+        android:id="@+id/catList"
+        android:layout_width="140dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@id/smallBox"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toTopOf="@id/smallBox"
+        app:tl_divider_color="@color/black"
+        app:tl_indicator_anim_enable="true"
+        app:tl_indicator_bounce_enable="true"
+        app:tl_indicator_color="@color/darkGreen"
+        app:tl_tab_space_equal="true"
+        app:tl_bar_stroke_width="0dp"
+        app:tl_indicator_corner_radius="2dp"
+        app:tl_tab_width="0dp"  />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="0dp"
+        android:background="#EEEEEE"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/smallBox"
+        app:spanCount="2"
+        tools:listitem="@layout/products_list_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>
